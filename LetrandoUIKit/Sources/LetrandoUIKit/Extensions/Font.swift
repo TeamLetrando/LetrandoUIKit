@@ -8,7 +8,7 @@
 import UIKit
 
 public extension UIFont {
-    static func set(size: CGFloat, weight: UIFont.Weight, textStyle: UIFont.TextStyle) -> UIFont {
+    static func set(size: CGFloat, weight: UIFont.Weight = .bold, textStyle: UIFont.TextStyle = .largeTitle) -> UIFont {
 
         let customFont = systemFont(ofSize: size, weight: weight)
         
