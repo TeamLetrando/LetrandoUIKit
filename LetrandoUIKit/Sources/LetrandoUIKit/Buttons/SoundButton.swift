@@ -9,20 +9,25 @@ import UIKit
 
 public class SoundButton: UIView, ViewCodable {
 
-    private var currentBackgroundImage: UIImage?
-    private var buttonAction: (() -> UIImage?)
+    private var soundOffImage: UIImage?
+    private var soundOnImage: UIImage?
+    private var isSoundOn: Bool?
+    private var buttonAction: (() -> Void)?
 
     private lazy var roundedButton: RoundedButton = {
-        let button = RoundedButton(backgroundImage: currentBackgroundImage,
-                                   buttonAction: setAudio,
+        let button = RoundedButton(backgroundImage: (isSoundOn ?? false) ? soundOnImage : soundOffImage,
+                                   buttonAction: soundButtonAction,
                                    tintColor: .greenActionLetrando)
-        button.setBackgroundImage(currentBackgroundImage, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    init(backgroundImage: UIImage?, buttonAction: @escaping (() -> UIImage?)) {
-        currentBackgroundImage = backgroundImage
+    init(soundOffImage: UIImage?,
+         soundOnImage: UIImage?,
+         isSoundOn: Bool?,
+         buttonAction: (() -> Void)?) {
+        self.soundOffImage = soundOffImage
+        self.soundOnImage = soundOnImage
+        self.isSoundOn = isSoundOn
         self.buttonAction = buttonAction
         
         super.init(frame: .zero)
@@ -36,26 +41,8 @@ public class SoundButton: UIView, ViewCodable {
         setupView()
     }
 
-    // Jogar completion
-    // Buttons configuration - UIAction
-    @objc private func setAudio() {
-//        UserDefaults.standard.set(!Sounds.checkAudio(), forKey:LocalizableBundle.userDefautlsKeySound.localize)
-//
-//        Sounds.checkAudio() ? Sounds.playAudio() : Sounds.audioFinish()
-        
-        //buttonAction
-        
-        let image = buttonAction()
-        
-        let b = UIStackView()
-        b.add
-
-        roundedButton.setBackgroundImage(currentBackgroundImage, for: .normal)
-        layoutSubviews()
-    }
-
     public func buildViewHierarchy() {
-        addSubview(roundedButton)
+        addSubviews(roundedButton)
     }
 
     public func setupConstraints() {
@@ -65,5 +52,13 @@ public class SoundButton: UIView, ViewCodable {
             roundedButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             roundedButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    @objc private func soundButtonAction() {
+        buttonAction?()
+
+        isSoundOn?.toggle()
+        roundedButton.setBackgroundImage((isSoundOn ?? false) ? soundOnImage : soundOffImage, for: .normal)
+        layoutSubviews()
     }
 }

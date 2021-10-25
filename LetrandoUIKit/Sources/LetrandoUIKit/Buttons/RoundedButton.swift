@@ -9,9 +9,9 @@ import UIKit
 
 public class RoundedButton: UIButton {
     
-    private var buttonAction: (() -> Void)
-   
-    public init(backgroundImage: UIImage?, buttonAction: @escaping (() -> Void), tintColor: UIColor) {
+    private var buttonAction: (() -> Void)?
+    
+    public init(backgroundImage: UIImage?, buttonAction: (() -> Void)?, tintColor: UIColor) {
         self.buttonAction = buttonAction
         
         super.init(frame: .zero)
@@ -32,14 +32,8 @@ public class RoundedButton: UIButton {
     }
     
     @objc private func setButtonAction() {
-        buttonAction()
+        buttonAction?()
         animateButton()
-    }
-
-    public override func setNeedsLayout() {
-        layer.borderWidth = frame.width * 0.1
-        layer.cornerRadius = frame.width / 2
-        layer.masksToBounds = true
     }
     
     private func animateButton() {
@@ -49,6 +43,12 @@ public class RoundedButton: UIButton {
             self?.frame.size.height -= 3
             self?.center = center
         })
+    }
+    
+    public override func setNeedsLayout() {
+        layer.borderWidth = constants.width * 0.1
+        layer.cornerRadius = constants.width / 2
+        layer.masksToBounds = true
     }
 }
 
