@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LetrandoUIKit",
+        "repositoryURL": "https://github.com/TeamLetrando/LetrandoUIKit",
+        "state": {
+          "branch": "main",
+          "revision": "e8d4f3adfbbf55540a1b6b31427d510b51444a41",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
