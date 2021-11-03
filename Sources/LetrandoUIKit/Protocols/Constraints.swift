@@ -9,8 +9,8 @@ import UIKit
 
 public protocol Constraints {}
 
-extension Constraints where Self: UIView {
-    public var constants: ConstraintsHelper<Self> {
+public extension Constraints where Self: UIView {
+    var constants: ConstraintsHelper<Self> {
         ConstraintsHelper()
     }
 }

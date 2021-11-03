@@ -21,7 +21,7 @@ public class SoundButton: UIView, ViewCodable {
         return button
     }()
     
-    init(soundOffImage: UIImage?,
+    public init(soundOffImage: UIImage?,
          soundOnImage: UIImage?,
          isSoundOn: Bool?,
          buttonAction: (() -> Void)?) {
