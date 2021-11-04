@@ -7,10 +7,10 @@
 
 import UIKit
 
-public class ConstraintsHelper<View> where View: UIView {
-    public lazy var screenSize = UIScreen.main.bounds.size
-    public lazy var height: CGFloat = screenSize.height / 812
-    public lazy var width: CGFloat = screenSize.width / 375
+public struct ConstraintsHelper<View> where View: UIView {
+    public var screenSize: CGSize { UIScreen.main.bounds.size }
+    public var height: CGFloat { screenSize.height / 812 }
+    public var width: CGFloat { screenSize.width / 375 }
     
-    public lazy var horizontalMargins: CGFloat = 16 * width
+    public var horizontalMargins: CGFloat { 16 * width }
 }
