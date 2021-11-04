@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1920A422732CCE100DDC496 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1920A412732CCE100DDC496 /* View.swift */; };
 		D1C1AC77272AE09400E43649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1AC76272AE09400E43649 /* AppDelegate.swift */; };
 		D1C1AC79272AE09400E43649 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1AC78272AE09400E43649 /* SceneDelegate.swift */; };
 		D1C1AC7B272AE09400E43649 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C1AC7A272AE09400E43649 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1920A412732CCE100DDC496 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D1C1AC73272AE09400E43649 /* ProjectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C1AC76272AE09400E43649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1C1AC78272AE09400E43649 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				D1C1AC76272AE09400E43649 /* AppDelegate.swift */,
 				D1C1AC78272AE09400E43649 /* SceneDelegate.swift */,
 				D1C1AC7A272AE09400E43649 /* ViewController.swift */,
+				D1920A412732CCE100DDC496 /* View.swift */,
 				D1C1AC7F272AE09600E43649 /* Assets.xcassets */,
 				D1C1AC81272AE09600E43649 /* LaunchScreen.storyboard */,
 				D1C1AC84272AE09600E43649 /* Info.plist */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1920A422732CCE100DDC496 /* View.swift in Sources */,
 				D1C1AC7B272AE09400E43649 /* ViewController.swift in Sources */,
 				D1C1AC77272AE09400E43649 /* AppDelegate.swift in Sources */,
 				D1C1AC79272AE09400E43649 /* SceneDelegate.swift in Sources */,
