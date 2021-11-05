@@ -44,9 +44,9 @@ public class RoundedButton: UIButton {
             self?.center = buttonCenter
         })
     }
-    
-    public override func setNeedsLayout() {
-        layer.borderWidth = constants.width * 0.1
+
+    public override func layoutSubviews() {
+        layer.borderWidth = constants.width * 0.7
         layer.cornerRadius = constants.width / 2
         layer.masksToBounds = true
     }
