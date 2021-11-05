@@ -13,24 +13,57 @@ class ExampleView: UIView, ViewCodable {
     
     private lazy var soundButton = SoundButton(soundOffImage: UIImage(named: "handButtonOff"), soundOnImage: UIImage(named: "handButtonOn"), isSoundOn: false, buttonAction: soundButtonAction)
     
+    private lazy var messageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Label"
+        label.font = .set(size: 20, textStyle: .headline)
+        label.numberOfLines = 0
+        label.tintColor = .pinkBaby
+        return label
+    }()
+    
     override func didMoveToSuperview() {
         setupView()
     }
     
     func buildViewHierarchy() {
-        
+        addSubviews(roundedButton, soundButton, messageLabel)
     }
     
     func setupConstraints() {
-        
+        NSLayoutConstraint.activate([
+            roundedButton.widthAnchor.constraint(equalToConstant: constants.buttonWidht),
+            roundedButton.heightAnchor.constraint(equalToConstant: constants.buttonHeight),
+            roundedButton.leftAnchor.constraint(equalTo: leftAnchor, constant: constants.roundendButtonLeftAnchor),
+            roundedButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            soundButton.widthAnchor.constraint(equalToConstant: constants.buttonWidht),
+            soundButton.heightAnchor.constraint(equalToConstant: constants.buttonHeight),
+            soundButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -constants.horizontalMargins),
+            soundButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            messageLabel.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: constants.verticalMargin),
+            messageLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -constants.verticalMargin),
+            messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: constants.verticalMargin),
+            messageLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -constants.verticalMargin)
+        ])
+    }
+    
+    func setupAditionalChanges() {
+        backgroundColor = .transparentLightBlue
     }
     
     private func soundButtonAction() {
         print("Sound Button Action Pressed!!")
+        DispatchQueue.main.async { [weak self] in
+            self?.messageLabel.tintColor = .random(from: [.transparentLightBlue, .lightGreenBackgroundLetrando, .customBrown, .greenActionLetrando, .greenBackgroundLetrando, .darkGreenLetrando, .purpleCustom, .blueCustom, .yellowCustom, .pinkBaby, .redCustom])
+        }
     }
 }
 
-extension Constraints where Self: ExampleView {
-    var buttonHeight: CGFloat = 50
-    var buttonWidht: CGFloat = 50
+extension ConstraintsHelper where View: ExampleView {
+    var buttonHeight: CGFloat { 50 * height }
+    var buttonWidht: CGFloat { 50 * width }
+    var roundendButtonLeftAnchor: CGFloat { 20 * width }
+    var verticalMargin: CGFloat { 25 * height }
 }
