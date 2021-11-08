@@ -18,7 +18,7 @@ class ExampleView: UIView, ViewCodable {
         label.text = "Label"
         label.font = .set(size: 20, textStyle: .headline)
         label.numberOfLines = 0
-        label.tintColor = .pinkBaby
+        label.textColor = .pinkBaby
         return label
     }()
     
@@ -56,14 +56,14 @@ class ExampleView: UIView, ViewCodable {
     private func soundButtonAction() {
         print("Sound Button Action Pressed!!")
         DispatchQueue.main.async { [weak self] in
-            self?.messageLabel.tintColor = .random(from: [.transparentLightBlue, .lightGreenBackgroundLetrando, .customBrown, .greenActionLetrando, .greenBackgroundLetrando, .darkGreenLetrando, .purpleCustom, .blueCustom, .yellowCustom, .pinkBaby, .redCustom])
+            self?.messageLabel.textColor = .random(from: [.transparentLightBlue, .lightGreenBackgroundLetrando, .customBrown, .greenActionLetrando, .greenBackgroundLetrando, .darkGreenLetrando, .purpleCustom, .blueCustom, .yellowCustom, .pinkBaby, .redCustom])
         }
     }
 }
 
 extension ConstraintsHelper where View: ExampleView {
-    var buttonHeight: CGFloat { 50 * height }
-    var buttonWidht: CGFloat { 50 * width }
-    var roundendButtonLeftAnchor: CGFloat { 20 * width }
-    var verticalMargin: CGFloat { 25 * height }
+    var buttonHeight: CGFloat { 50 * heightMultiplier }
+    var buttonWidht: CGFloat { 50 * widthMultiplier }
+    var roundendButtonLeftAnchor: CGFloat { 20 * widthMultiplier }
+    var verticalMargin: CGFloat { 25 * heightMultiplier }
 }
