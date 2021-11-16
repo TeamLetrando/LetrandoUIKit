@@ -8,6 +8,12 @@
 import UIKit
 
 public extension UIFont {
+    /// This function is useful to configure a specific table with the most used parameters separately
+    /// - Parameters:
+    ///   - size: The size of the font
+    ///   - weight: The weight of the font, with standard value of bold.
+    ///   - textStyle: The textStyle of the font, with standard value of largeTitle.
+    /// - Returns: A custom UIFont with the parameters passed
     static func set(size: CGFloat, weight: UIFont.Weight = .bold, textStyle: UIFont.TextStyle = .largeTitle) -> UIFont {
 
         let customFont = systemFont(ofSize: size, weight: weight)

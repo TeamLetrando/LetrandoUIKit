@@ -7,10 +7,16 @@
 
 import UIKit
 
+/// This class represents a round button used in Letrando
 public class RoundedButton: UIButton {
     
+    /// The button's action, which must be passed via the constructor. The button may or may not have action, so it is optional.
     private var buttonAction: (() -> Void)?
     
+    /// - Parameters:
+    ///   - backgroundImage: The possible background image of the button
+    ///   - buttonAction: The possible action of the button
+    ///   - tintColor: The background color of the button fill
     public init(backgroundImage: UIImage?, buttonAction: (() -> Void)?, tintColor: UIColor) {
         self.buttonAction = buttonAction
         
